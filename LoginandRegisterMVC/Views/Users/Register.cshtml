@@ -1,0 +1,95 @@
+﻿@model LoginandRegisterMVC.Models.User
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="signup-container">
+    <h2 class="text-center">Create Your Account</h2>
+
+    @Html.ValidationSummary(true, "", new { @class = "danger" })
+    <div class="">
+        @Html.LabelFor(model => model.UserId)
+        <div class="">
+            @Html.EditorFor(model => model.UserId)
+            @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "danger" })
+        </div>
+    </div>
+
+    <div class="">
+        @Html.LabelFor(model => model.Username)
+        <div class="">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username, "", new { @class = "danger" })
+        </div>
+    </div>
+
+    <div class="">
+        @Html.LabelFor(model => model.Password)
+        <div class="">
+            @Html.EditorFor(model => model.Password)
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "danger" })
+        </div>
+    </div>
+    <div class="">
+        @Html.LabelFor(model => model.ConfirmPassword)
+        <div class="">
+            @Html.EditorFor(model => model.ConfirmPassword)
+            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "danger" })
+        </div>
+    </div>
+
+    <div class="">
+        @Html.LabelFor(model => model.Role)
+        @if (Session["Role"]!=null && Session["Role"].Equals("Admin"))
+        {
+            <div class="">
+                @Html.DropDownListFor(model => model.Role, new List<SelectListItem>
+                {
+                    new SelectListItem{Text="Admin",Value="Admin"},
+                    new SelectListItem{Text="User",Value="User"}
+                }, "Select Role")
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "danger" })
+            </div>
+        }
+        else
+        {
+            <div class="">
+                @Html.DropDownListFor(model => model.Role, new List<SelectListItem>
+                {
+                    new SelectListItem{Text="User",Value="User"}
+                }, "Select Role")
+                @Html.ValidationMessageFor(model => model.Role, "", new { @class = "danger" })
+            </div>
+        }
+    </div>
+
+        <div class="">
+            <div class="">
+                <input type="submit" value="Signup" class="signup-btn" />
+            </div>
+        </div>
+    </div>
+    }
+
+<div>
+    Existing user? 
+    @Html.ActionLink("Login", "Login")
+</div>
+</div>    
+    @if (Session["UserId"] != null)
+    {
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+    
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

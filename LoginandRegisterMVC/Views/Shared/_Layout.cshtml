@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITGN 350 Assignment</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+    <nav class="main-nav">
+            <div class="brand-name">
+                @Html.ActionLink("BRAND-NAME", "Index", "Users", new { area = "" }, new { @class = "brand" })
+            </div>
+            <div id="navbarNav">
+                <ul class="list-container">
+                    <li class="">@Html.ActionLink("Home", "Index", "Users", null)</li>
+                    <li class="">@Html.ActionLink("Login", "Login", "Users", null)</li>
+                    <li class="">@Html.ActionLink("Signup", "Register", "Users", null)</li>
+                    <li class="">@Html.ActionLink("About", "About", "Users", null)</li>
+                    @if (Session["UserId"] != null)
+                    {
+                        <li class="">@Html.ActionLink("Logout", "Logout", "Users", null)</li>
+                    }
+                </ul>
+            </div>
+    </nav>
+    <div class="body-container">
+        @RenderBody()
+        <hr />
+    </div>
+        <footer class="footer-container">
+            <p>&copy; @DateTime.Now.Year - LoginDemo All Rights Reserved</p>
+        </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

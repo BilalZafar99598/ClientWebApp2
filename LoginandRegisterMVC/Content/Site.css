@@ -1,0 +1,128 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+body {
+    padding-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    max-width:70%;
+    margin-top: 30px;
+    background-color: rgba(236,239,241,1);
+    border-radius: 10px;
+}
+
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.main-nav{
+    display:flex;
+    background-color:purple;
+    padding:20px;
+}
+.list-container{
+    display: flex;
+    position:relative;
+    top:30%;
+}
+.list-container li{
+    display:inline-block;
+    margin-left:40px;
+    text-decoration:none;
+    font-weight:bold;
+}
+ul li a{
+    color:white;;
+}
+.brand{
+    font-size:35px;
+}
+
+.list-container{
+    list-style:none;
+}
+.brand-name a{
+    color:white;
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+    color:yellow;
+}
+footer{
+    display:flex;
+    justify-content:center;
+    background-color:purple;
+    color:white;
+}
+
+label{
+    font-weight:bold;
+    color:white;
+}
+.main-sec{
+    background-color:purple;
+    border-radius:10px;
+    padding:20px;
+    width:50vw;
+    height:70vh;
+    margin-top:20px;
+}
+    .main-sec input[type="text"], .main-sec input[type="email"], .main-sec input[type="password"]{
+        width:60%;
+        padding:0.3rem;
+    }
+    .main-sec h2{
+        color:white;
+    }
+    .login-section {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+
+.btn-container input{
+    width:15%;
+    font-weight:bold;
+}
+.signup-container{
+    background-color:purple;
+    width:80%;
+    padding:15px;
+    margin:auto;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+    .signup-container input[type="text"], .signup-container input[type="email"], .signup-container input[type="password"] {
+        width: 90vw;
+        padding:0.4rem;
+    }
+
+.signup-btn{
+    margin-top:10px;
+    font-weight:bold;
+}
+.signup-container h2{
+    color:white;
+}
+.danger{
+    color:yellow;
+}
+.div1, .div2, .div3 {
+    padding: 20px;
+    background-color: #C47DF2;
+    font-size:1rem;
+}

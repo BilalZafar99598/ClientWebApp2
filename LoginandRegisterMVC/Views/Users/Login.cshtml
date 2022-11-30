@@ -1,0 +1,57 @@
+﻿@model LoginandRegisterMVC.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div class="login-section">
+    <div class="main-sec">
+
+        <div class="head-container">
+            <h2 class="text-center">LOGIN</h2>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "danger" })<br />
+        <div class="login-container">
+            <div>
+                @Html.LabelFor(model => model.UserId)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.UserId)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.UserId, "", new { @class = "danger" })
+            </div>
+        </div>
+
+        <div class="pass-container">
+            <div>
+                @Html.LabelFor(model => model.Password)
+            </div>
+            <div>
+                @Html.EditorFor(model => model.Password)
+            </div>
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "danger" })
+        </div><br />
+
+        <div class="">
+            <div class="btn-container">
+                <input type="submit" value="Login" />
+            </div>
+        </div>
+    </div>
+</div>
+    
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
